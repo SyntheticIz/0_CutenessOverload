@@ -23,7 +23,9 @@ namespace CutenessOverload
 
         Texture2D background;  // This is a Texture2D object that will hold the background picture
         Texture2D superDogSheet;  // What's supdog?
+        //Texture2D dallsTex;
         Sprite superdog;  // We will load a superdog image into this sprite and make him do awesome things!
+        //Sprite dallas;
 
         public Game1()
         {
@@ -54,12 +56,17 @@ namespace CutenessOverload
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            background = Content.Load<Texture2D>("background");  // Load the background picture file into the 
+            background = Content.Load<Texture2D>("House");  // Load the background picture file into the 
                                                                  // texture.. note that under the properties for 
                                                                  // background.jpg in the Solution explorer you 
                                                                  // should see that it has the asset name of "background"
-
+            BreatherTex = Content.Load<Texture2D>("name");
+            //LOAD IN GAME
             superDogSheet = Content.Load<Texture2D>("superdog");
+
+
+
+            //  Spawns
 
             superdog = new Sprite(new Vector2(-150, 30), // Start at x=-150, y=30
                                   superDogSheet, 
@@ -90,7 +97,9 @@ namespace CutenessOverload
                 this.Exit();
             
             // TODO: Add your update logic here
+            //UPDATE HERE
             superdog.Update(gameTime);  // Update the superdog so he moves
+            //dallas.Update(GameTime);
 
             base.Update(gameTime);
         }
@@ -108,6 +117,8 @@ namespace CutenessOverload
             // TODO: Add your drawing code here
             spriteBatch.Draw(background, new Rectangle(0,0,this.Window.ClientBounds.Width,this.Window.ClientBounds.Height), Color.White); // Draw the background at (0,0) - no crazy tinting
             superdog.Draw(spriteBatch);  // Draw the superdog!
+            //DRAW HERE
+            //dallas.Draw(spriteBatch);
 
             spriteBatch.End();
 
